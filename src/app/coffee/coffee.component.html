@@ -1,0 +1,10 @@
+<div>
+
+  <app-coffee-item
+    *ngFor="let coffee of (coffees$ | async) |paginate:  { id:'id', itemsPerPage: 10, currentPage: page }; let i =index; "
+    [coffeeItem]="coffee" [index]="i">
+  </app-coffee-item>
+  <div>
+    <pagination-controls id='id' (pageChange)="page = $event"></pagination-controls>
+
+  </div>
